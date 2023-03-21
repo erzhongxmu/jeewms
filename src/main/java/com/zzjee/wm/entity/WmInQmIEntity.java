@@ -116,6 +116,11 @@ public class WmInQmIEntity implements java.io.Serializable {
 	/**基本单位数量*/
 	@Excel(name="基本单位数量")
 	private java.lang.String baseGoodscount;
+	/**基本单位数量*/
+	@Excel(name="皮数量")
+	private java.lang.String baseInGoodscount;
+	@Excel(name="总数量")
+	private java.lang.String baseOutGoodscount;
 	/**基本单位收货数量*/
 //	@Excel(name="基本单位收货数量")
 	private java.lang.String baseQmcount;
@@ -555,6 +560,25 @@ public class WmInQmIEntity implements java.io.Serializable {
 	public void setBaseGoodscount(java.lang.String baseGoodscount){
 		this.baseGoodscount = baseGoodscount;
 	}
+
+	@Column(name ="BASE_in_GOODSCOUNT",nullable=true,length=45)
+	public String getBaseInGoodscount() {
+		return baseInGoodscount;
+	}
+
+	public void setBaseInGoodscount(String baseInGoodscount) {
+		this.baseInGoodscount = baseInGoodscount;
+	}
+
+	@Column(name ="BASE_OUT_GOODSCOUNT",nullable=true,length=45)
+	public String getBaseOutGoodscount() {
+		return baseOutGoodscount;
+	}
+
+	public void setBaseOutGoodscount(String baseOutGoodscount) {
+		this.baseOutGoodscount = baseOutGoodscount;
+	}
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  基本单位收货数量

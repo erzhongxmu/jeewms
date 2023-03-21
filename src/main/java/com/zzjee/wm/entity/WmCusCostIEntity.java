@@ -17,12 +17,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.SequenceGenerator;
 import org.jeecgframework.poi.excel.annotation.Excel;
 
-/**   
+/**
  * @Title: Entity
  * @Description: 费用项目
  * @author erzhongxmu
  * @date 2017-09-26 15:12:31
- * @version V1.0   
+ * @version V1.0
  *
  */
 @Entity
@@ -50,6 +50,13 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	/**费用名称*/
     @Excel(name="费用名称")
 	private java.lang.String costCode;
+	/**费用名称*/
+	@Excel(name="免费天数")
+	private java.lang.String freeDay;
+//	@Excel(name="免费天数2")
+	private java.lang.String freeDay2;
+	@Excel(name="数据SQL")
+	private java.lang.String dataSql;
 	/**价格RMB*/
     @Excel(name="价格RMB")
 	private java.lang.String costJg;
@@ -67,7 +74,7 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	private java.lang.String costHs;
 	/**费用ID*/
 	private java.lang.String cusCostId;
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主键
@@ -75,7 +82,7 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	@Id
 	@GeneratedValue(generator = "paymentableGenerator")
 	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
-	
+
 	@Column(name ="ID",nullable=false,length=36)
 	public java.lang.String getId(){
 		return this.id;
@@ -88,12 +95,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setId(java.lang.String id){
 		this.id = id;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  创建人名称
 	 */
-	
+
 	@Column(name ="CREATE_NAME",nullable=true,length=50)
 	public java.lang.String getCreateName(){
 		return this.createName;
@@ -106,12 +113,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCreateName(java.lang.String createName){
 		this.createName = createName;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  创建人登录名称
 	 */
-	
+
 	@Column(name ="CREATE_BY",nullable=true,length=50)
 	public java.lang.String getCreateBy(){
 		return this.createBy;
@@ -124,12 +131,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCreateBy(java.lang.String createBy){
 		this.createBy = createBy;
 	}
-	
+
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  创建日期
 	 */
-	
+
 	@Column(name ="CREATE_DATE",nullable=true,length=20)
 	public java.util.Date getCreateDate(){
 		return this.createDate;
@@ -142,12 +149,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCreateDate(java.util.Date createDate){
 		this.createDate = createDate;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  更新人名称
 	 */
-	
+
 	@Column(name ="UPDATE_NAME",nullable=true,length=50)
 	public java.lang.String getUpdateName(){
 		return this.updateName;
@@ -160,12 +167,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setUpdateName(java.lang.String updateName){
 		this.updateName = updateName;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  更新人登录名称
 	 */
-	
+
 	@Column(name ="UPDATE_BY",nullable=true,length=50)
 	public java.lang.String getUpdateBy(){
 		return this.updateBy;
@@ -178,12 +185,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setUpdateBy(java.lang.String updateBy){
 		this.updateBy = updateBy;
 	}
-	
+
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  更新日期
 	 */
-	
+
 	@Column(name ="UPDATE_DATE",nullable=true,length=20)
 	public java.util.Date getUpdateDate(){
 		return this.updateDate;
@@ -196,12 +203,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setUpdateDate(java.util.Date updateDate){
 		this.updateDate = updateDate;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  所属部门
 	 */
-	
+
 	@Column(name ="SYS_ORG_CODE",nullable=true,length=50)
 	public java.lang.String getSysOrgCode(){
 		return this.sysOrgCode;
@@ -214,12 +221,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setSysOrgCode(java.lang.String sysOrgCode){
 		this.sysOrgCode = sysOrgCode;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  所属公司
 	 */
-	
+
 	@Column(name ="SYS_COMPANY_CODE",nullable=true,length=50)
 	public java.lang.String getSysCompanyCode(){
 		return this.sysCompanyCode;
@@ -232,12 +239,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setSysCompanyCode(java.lang.String sysCompanyCode){
 		this.sysCompanyCode = sysCompanyCode;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  费用名称
 	 */
-	
+
 	@Column(name ="COST_CODE",nullable=true,length=32)
 	public java.lang.String getCostCode(){
 		return this.costCode;
@@ -250,12 +257,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostCode(java.lang.String costCode){
 		this.costCode = costCode;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  价格RMB
 	 */
-	
+
 	@Column(name ="COST_JG",nullable=true,length=32)
 	public java.lang.String getCostJg(){
 		return this.costJg;
@@ -268,12 +275,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostJg(java.lang.String costJg){
 		this.costJg = costJg;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  税率
 	 */
-	
+
 	@Column(name ="COST_SL",nullable=true,length=32)
 	public java.lang.String getCostSl(){
 		return this.costSl;
@@ -286,12 +293,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostSl(java.lang.String costSl){
 		this.costSl = costSl;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  折扣
 	 */
-	
+
 	@Column(name ="COST_ZK",nullable=true,length=32)
 	public java.lang.String getCostZk(){
 		return this.costZk;
@@ -304,12 +311,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostZk(java.lang.String costZk){
 		this.costZk = costZk;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  不含税价RMB
 	 */
-	
+
 	@Column(name ="COST_BHS",nullable=true,length=32)
 	public java.lang.String getCostBhs(){
 		return this.costBhs;
@@ -322,12 +329,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostBhs(java.lang.String costBhs){
 		this.costBhs = costBhs;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  含税价RMB
 	 */
-	
+
 	@Column(name ="COST_HS",nullable=true,length=32)
 	public java.lang.String getCostHs(){
 		return this.costHs;
@@ -340,12 +347,12 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCostHs(java.lang.String costHs){
 		this.costHs = costHs;
 	}
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  费用ID
 	 */
-	
+
 	@Column(name ="CUS_COST_ID",nullable=true,length=36)
 	public java.lang.String getCusCostId(){
 		return this.cusCostId;
@@ -358,5 +365,31 @@ public class WmCusCostIEntity implements java.io.Serializable {
 	public void setCusCostId(java.lang.String cusCostId){
 		this.cusCostId = cusCostId;
 	}
-	
+
+	@Column(name ="free_day",nullable=true,length=36)
+	public String getFreeDay() {
+		return freeDay;
+	}
+
+	public void setFreeDay(String freeDay) {
+		this.freeDay = freeDay;
+	}
+
+	@Column(name ="free_day2",nullable=true,length=36)
+	public String getFreeDay2() {
+		return freeDay2;
+	}
+
+	public void setFreeDay2(String freeDay2) {
+		this.freeDay2 = freeDay2;
+	}
+
+	@Column(name ="data_sql",nullable=true,length=36)
+	public String getDataSql() {
+		return dataSql;
+	}
+
+	public void setDataSql(String dataSql) {
+		this.dataSql = dataSql;
+	}
 }

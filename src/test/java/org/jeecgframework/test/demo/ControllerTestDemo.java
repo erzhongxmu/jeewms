@@ -1,16 +1,14 @@
 package org.jeecgframework.test.demo;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
-import com.zzjee.wmutil.uasUtil;
-import com.zzjee.wmutil.yyUtil;
+
+import HslCommunication.Core.Types.OperateResult;
+import HslCommunication.Core.Types.OperateResultExOne;
+import HslCommunication.Profinet.Omron.OmronHostLinkOverTcp;
 import org.jeecgframework.AbstractUnitTest;
-import org.jeecgframework.core.util.DateUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -18,15 +16,9 @@ import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
-import java.util.HashMap;
-import java.util.Map;
 
-/**
- * Controller 单元测试Demo
- * @author  许国杰
- */
 public class ControllerTestDemo  extends AbstractUnitTest{
-	
+
 	private MockMvc mockMvc;
 	private MockHttpSession session; //为模拟登录时，所有请求使用同一个session
 	@Before
@@ -40,6 +32,13 @@ public class ControllerTestDemo  extends AbstractUnitTest{
 	//测试登录
 	@Test
 	public void testLogin() throws Exception {
+
+		OmronHostLinkOverTcp omronHostLinkOverTcp = new OmronHostLinkOverTcp();
+		omronHostLinkOverTcp.setIpAddress("172.17.140.51");
+		omronHostLinkOverTcp.setPort(9600);
+		OperateResult operateResult = omronHostLinkOverTcp.ConnectServer();
+		final OperateResultExOne<byte[]> d1111 = omronHostLinkOverTcp.Read("D1111", (short) 1);
+		omronHostLinkOverTcp.Write("D1111",1);
 //        yyUtil.getProduct();
 //		Map<String, Object> paramMap = new HashMap<String, Object>();
 //		paramMap.put("formDate","2017-01-01");
@@ -76,7 +75,7 @@ public class ControllerTestDemo  extends AbstractUnitTest{
 //				.andDo(print()) //打印报文
 //				.andExpect(view().name(containsString("jeecg/demo/base/tabledemo"))); //验证返回view 是否不正确
 	}
-	
+
 	//使用jsonPath 验证返回json 的属性
 	@Test
 	public void testPDemoList() throws Exception{

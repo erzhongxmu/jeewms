@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="online/template/ledefault/css/bootstrap-theme.css">
   <link rel="stylesheet" href="online/template/ledefault/css/bootstrap.css">
   <link rel="stylesheet" href="online/template/ledefault/css/app.css">
-  
+
   <link rel="stylesheet" href="plug-in/Validform/css/metrole/style.css" type="text/css"/>
   <link rel="stylesheet" href="plug-in/Validform/css/metrole/tablefrom.css" type="text/css"/>
-  
+
   <script type="text/javascript" src="plug-in/jquery/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="plug-in/tools/dataformat.js"></script>
   <script type="text/javascript" src="plug-in/easyui/jquery.easyui.min.1.3.2.js"></script>
@@ -74,7 +74,7 @@
 			          </div>
 			          <div class="col-xs-3">
 								<t:dictSelect field="cusCode" type="list" extendJson="{class:'form-control'}"  readonly="readonly"
-								dictTable="mv_cus" dictField="cus_code" dictText="cus_name" defaultVal="${wmInQmIPage.cusCode}" hasLabel="false"  title="货主"></t:dictSelect>     
+								dictTable="mv_cus" dictField="cus_code" dictText="cus_name" defaultVal="${wmInQmIPage.cusCode}" hasLabel="false"  title="货主"></t:dictSelect>
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">货主</label>
 			          </div>
@@ -85,7 +85,7 @@
 			          </div>
 			          <div class="col-xs-3">
 								<input id="tinId" name="tinId" type="text" class="form-control"
-									ignore="checked" 
+									ignore="checked"
 								   datatype="*" value='${wmInQmIPage.tinId}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">托盘</label>
@@ -100,29 +100,29 @@
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">储位</label>
 			          </div>
-			          		        
-	
+
+
 			          <div class="col-xs-3 text-center">
 			          	<b>是否已上架：</b>
 			          </div>
 			          <div class="col-xs-3">
 								<t:dictSelect   readonly="readonly" field="binSta" type="list" extendJson="{class:'form-control'}"
-								typeGroupCode="sf_yn" defaultVal="${wmInQmIPage.binSta}" hasLabel="false"  title="是否已上架"></t:dictSelect>     
+								typeGroupCode="sf_yn" defaultVal="${wmInQmIPage.binSta}" hasLabel="false"  title="是否已上架"></t:dictSelect>
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">是否已上架</label>
 			          </div>
-				
+
 						</div>
 
-			          
-			        
+
+
 							<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>商品：</b>
 			          </div>
 			          <div class="col-xs-3">
 								<t:dictSelect field="goodsId" type="list" extendJson="{class:'form-control'}"  readonly="readonly"
-								dictTable="mv_goods" dictField="goods_code" dictText="goods_name" defaultVal="${wmInQmIPage.goodsId}" hasLabel="false"  title="商品编码"></t:dictSelect>     
+								dictTable="mv_goods" dictField="goods_code" dictText="goods_name" defaultVal="${wmInQmIPage.goodsId}" hasLabel="false"  title="商品编码"></t:dictSelect>
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">商品编码</label>
 			          </div>
@@ -151,7 +151,7 @@
 			          </div>
 			          <div class="col-xs-3">
 								<input id="qmOkQuat" name="qmOkQuat" type="text" class="form-control"
-									ignore="checked" 
+									ignore="checked"
 								   datatype="*" value='${wmInQmIPage.qmOkQuat}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">数量</label>
@@ -161,7 +161,7 @@
 			          </div>
 			          <div class="col-xs-3">
 								<input id="tinTj" name="tinTj" type="text" class="form-control"
-									ignore="ignore" 
+									ignore="ignore"
 								   value='${wmInQmIPage.tinTj}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">体积</label>
@@ -171,19 +171,19 @@
 			          </div>
 			          <div class="col-xs-3">
 								<input id="tinZhl" name="tinZhl" type="text" class="form-control"
-									ignore="ignore" 
+									ignore="ignore"
 								   value='${wmInQmIPage.tinZhl}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">重量</label>
 			          </div>
 						</div>
-			          
+
 			          						<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>生产日期：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="proData" name="proData" type="text" 
+								<input id="proData" name="proData" type="text"
 									ignore="checked"
 								style="background: url('plug-in/ace/images/datetime.png') no-repeat scroll right center transparent;"  class="form-control" onClick="WdatePicker()" datatype="*" value="${wmInQmIPage.proData}" />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
@@ -200,7 +200,7 @@
 						<label class="Validform_label" style="display: none">批次</label>
 			          </div>
 						</div>
-			        
+
 							<div class="row show-grid">
 								          <div class="col-xs-3 text-center">
 			          	<b>收货温度：</b>
@@ -223,7 +223,31 @@
 						<label class="Validform_label" style="display: none">备注</label>
 			          </div>
 						</div>
-			          		       
+
+
+					  <div class="row show-grid">
+						  <div class="col-xs-3 text-center">
+							  <b>入重量：</b>
+						  </div>
+						  <div class="col-xs-3">
+							  <input id="baseInGoodscount" name="baseInGoodscount" type="text" class="form-control"
+									 ignore="ignore"
+									 value='${wmInQmIPage.baseInGoodscount}' />
+							  <span class="Validform_checktip" style="float:left;height:0px;"></span>
+							  <label class="Validform_label" style="display: none">入重量</label>
+						  </div>
+						  <div class="col-xs-3 text-center">
+							  <b>出重量：</b>
+						  </div>
+						  <div class="col-xs-3">
+							  <input id="baseOutGoodscount" name="baseOutGoodscount" type="text" class="form-control"
+									 ignore="ignore"
+									 value='${wmInQmIPage.baseOutGoodscount}' />
+							  <span class="Validform_checktip" style="float:left;height:0px;"></span>
+							  <label class="Validform_label" style="display: none">出重量</label>
+						  </div>
+					  </div>
+
 			          <div class="row" id = "sub_tr" style="display: none;">
 				        <div class="col-xs-12 layout-header">
 				          <div class="col-xs-6"></div>
@@ -232,7 +256,7 @@
 				      </div>
 			     </div>
 			   </div>
-			   
+
 			   <div class="con-wrapper" id="con-wrapper2" style="display: block;"></div>
 			 </div>
   </t:formvalid>
@@ -243,7 +267,7 @@
 	if(location.href.indexOf("load=detail")!=-1){
 		$(".jeecgDetail").hide();
 	}
-	
+
 	if(location.href.indexOf("mode=read")!=-1){
 		//查看模式控件禁用
 		$("#formobj").find(":input").attr("disabled","disabled");
@@ -256,11 +280,11 @@
 
   var neibuClickFlag = false;
   function neibuClick() {
-	  neibuClickFlag = true; 
+	  neibuClickFlag = true;
 	  $('#btn_sub').trigger('click');
   }
 
 </script>
  </body>
-<script src = "webpage/com/zzjee/wm/wmInQmI.js"></script>		
+<script src = "webpage/com/zzjee/wm/wmInQmI.js"></script>
 </html>

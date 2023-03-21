@@ -110,18 +110,15 @@ public class WaveToDownController extends BaseController {
 	 * easyui AJAX请求数据
 	 *
 	 * @param request
-	 * @param response
-	 * @param dataGrid
-	 * @param user
 	 */
 	@RequestMapping(params = "doPrintpage")
 	public ModelAndView doPrint(String waveid,HttpServletRequest request) {
 		String hql = "from WmOmQmIEntity where waveId = ? ";
 		List<WmOmQmIEntity> wavelist = systemService.findHql(hql,waveid);
-		for(WmOmQmIEntity t: wavelist ){
-			t.setFirstRq("已打印");
-			systemService.updateEntitie(t);
-		}
+//		for(WmOmQmIEntity t: wavelist ){
+//			t.setFirstRq("已打印");
+//			systemService.updateEntitie(t);
+//		}
 		request.setAttribute("kprq",DateUtils.date2Str(DateUtils.date_sdf));
 		request.setAttribute("comname", ResourceUtil.getConfigByName("comname"));
 		request.setAttribute("waveid",waveid);
@@ -202,7 +199,6 @@ public class WaveToDownController extends BaseController {
 	/**
 	 * 添加wave_to_down
 	 *
-	 * @param ids
 	 * @return
 	 */
 	@RequestMapping(params = "doAdd")
@@ -453,8 +449,11 @@ public class WaveToDownController extends BaseController {
                 wmToDownGoods.setOmBeizhu(wmOmQmI.getOmBeizhu());//备注
                 wmToDownGoods.setImCusCode(wmOmQmI.getImCusCode());//客户单号
                 wmToDownGoods.setOrderType("99");//默认为01
+				wmToDownGoods.setCreateBy(waveToDown.getCreateBy());
+				wmToDownGoods.setCreateDate(now());
                 systemService.save(wmToDownGoods);
                 wmOmQmI.setBinSta("H");
+				wmOmQmI.setUpdateBy(waveToDown.getCreateBy());
 				wmOmQmI.setFirstRq(waveToDown.getFirstRq());
                 systemService.saveOrUpdate(wmOmQmI);
             }

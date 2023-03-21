@@ -18,12 +18,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.SequenceGenerator;
 import org.jeecgframework.poi.excel.annotation.Excel;
 
-/**   
+/**
  * @Title: Entity
  * @Description: 计费配置
  * @author erzhongxmu
  * @date 2017-09-26 15:11:40
- * @version V1.0   
+ * @version V1.0
  *
  */
 @Entity
@@ -51,6 +51,12 @@ public class BaCostConfEntity implements java.io.Serializable {
 	/**费用名称*/
 	@Excel(name="费用名称")
 	private java.lang.String costCode;
+	@Excel(name="免费天数")
+	private java.lang.String freeDay;
+	//	@Excel(name="免费天数2")
+	private java.lang.String freeDay2;
+	@Excel(name="数据SQL")
+	private java.lang.String dataSql;
 	/**价格RMB*/
 	@Excel(name="价格RMB")
 	private java.lang.String costJg;
@@ -66,7 +72,7 @@ public class BaCostConfEntity implements java.io.Serializable {
 	/**含税价RMB*/
 	@Excel(name="含税价RMB")
 	private java.lang.String costHs;
-	
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主键
@@ -309,5 +315,32 @@ public class BaCostConfEntity implements java.io.Serializable {
 	 */
 	public void setCostHs(java.lang.String costHs){
 		this.costHs = costHs;
+	}
+
+	@Column(name ="free_day",nullable=true,length=3660)
+	public String getFreeDay() {
+		return freeDay;
+	}
+
+	public void setFreeDay(String freeDay) {
+		this.freeDay = freeDay;
+	}
+
+	@Column(name ="free_day2",nullable=true,length=3660)
+	public String getFreeDay2() {
+		return freeDay2;
+	}
+
+	public void setFreeDay2(String freeDay2) {
+		this.freeDay2 = freeDay2;
+	}
+
+	@Column(name ="data_sql",nullable=true,length=3660)
+	public String getDataSql() {
+		return dataSql;
+	}
+
+	public void setDataSql(String dataSql) {
+		this.dataSql = dataSql;
 	}
 }

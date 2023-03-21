@@ -344,11 +344,11 @@ public class WaveToFjController extends BaseController {
 	@RequestMapping(value = "/list/tofj",  method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> list(@RequestParam(value="username", required=false) String username,
-								  @RequestParam(value="searchstr", required=false)String searchstr,
-								  @RequestParam(value="searchstr2", required=false)String searchstr2,
-								  @RequestParam(value="searchstr3", required=false)String searchstr3,
+								  @RequestParam(value="searchstr", required=false)String searchstr,//波次号
+								  @RequestParam(value="searchstr2", required=false)String searchstr2,//一次容器
+								  @RequestParam(value="searchstr3", required=false)String searchstr3,//商品编码
 								  @RequestParam(value="searchstr4", required=false)String searchstr4,//二次容器
-								  @RequestParam(value="searchstr5", required=false)String searchstr5)
+								  @RequestParam(value="searchstr5", required=false)String searchstr5)//排序方式
 	{
 		ResultDO D0 = new  ResultDO();
 		D0.setOK(true);
@@ -457,6 +457,7 @@ public class WaveToFjController extends BaseController {
 			if (wmOmQmI != null&&wmOmQmI.getBinSta().equals("H")) {
 				wmOmQmI.setBinSta("Y");
 				wmOmQmI.setSecondRq(waveToFj.getSecondRq());
+				wmOmQmI.setUpdateBy(waveToFj.getCreateBy());//分拣人
 				systemService.saveOrUpdate(wmOmQmI);
 				String hql = "From WmOmQmIEntity where omNoticeId = ? and  binSta = ?";
 				List<WmOmQmIEntity> listom = systemService.findHql(hql,wmOmQmI.getOmNoticeId(),"H");
@@ -467,6 +468,7 @@ public class WaveToFjController extends BaseController {
 				}
 				WmOmNoticeHEntity wmom = systemService.findUniqueByProperty(WmOmNoticeHEntity.class, "omNoticeId", omnoticeid);
 				wmom.setOmSta("操作中");
+
 				systemService.updateEntitie(wmom);
 				D0.setOK(true);
 			}

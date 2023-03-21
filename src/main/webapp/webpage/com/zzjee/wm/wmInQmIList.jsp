@@ -36,6 +36,8 @@
     <t:dgCol title="重量"  field="tinZhl"    queryMode="single"  width="50"></t:dgCol>
     <t:dgCol title="基本单位"  field="baseUnit"  queryMode="single"  width="50"></t:dgCol>
     <t:dgCol title="基本单位数量"  field="baseGoodscount"    queryMode="single"  width="50"></t:dgCol>
+    <t:dgCol title="数量1"  field="baseInGoodscount"    queryMode="single"  width="50"></t:dgCol>
+    <t:dgCol title="数量2"  field="baseOutGoodscount"    queryMode="single"  width="50"></t:dgCol>
     <t:dgCol title="货主"  field="cusCode"  query="true"  queryMode="single" dictionary="mv_cus,cus_code,cus_name"  width="180"></t:dgCol>
     <t:dgCol title="是否已上架"  field="binSta"  query="true"  queryMode="single" dictionary="sf_yn" width="120"></t:dgCol>
 

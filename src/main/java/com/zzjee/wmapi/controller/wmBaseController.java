@@ -79,7 +79,7 @@ public class wmBaseController extends BaseController {
      * 获取图片流/获取文件用于下载
      *
      * @param response
-     * @param request
+     * @param request code128 格式
      * @throws Exception http://localhost:8080/zzjee/wmOmNoticeHController/showOrDownbarcodeByurl.do?&qrvalue=1111223333  调用
      */
 

@@ -27,13 +27,21 @@ public class BiBinController extends BaseController {
 //    private Validator validator;
     @RequestMapping(params = "homebi")
     public ModelAndView bi(HttpServletRequest request) {
+        biEntity biEntity = getBi("");
+        request.setAttribute("num1",biEntity.getNum1());
+        request.setAttribute("num2",biEntity.getNum2());
+        request.setAttribute("num3",biEntity.getNum3());
+        request.setAttribute("num4",biEntity.getNum4());
+
+        return new ModelAndView("com/zzjee/BI/home/reportbi");
+    }
+
+    public biEntity getBi(String username){
+        biEntity biEntity    = new biEntity();
         String num1= "0";
         String num2= "0";
         String num3= "0";
         String num4= "0";
-
-//        String yearstr = DateUtils.date2Str(DateUtils.yyyyMMdd);
-
         String ysql = "select CONVERT( sum(base_goodscount),DECIMAL(10,0)) as linecount from wm_im_notice_i where bin_pre = 'N'" ;
 
         List<Map<String,Object>> ymaplist1=systemService.findForJdbc(ysql);
@@ -82,15 +90,11 @@ public class BiBinController extends BaseController {
 
             }
         }
-
-
-
-        request.setAttribute("num1",num1);
-        request.setAttribute("num2",num2);
-        request.setAttribute("num3",num3);
-        request.setAttribute("num4",num4);
-
-        return new ModelAndView("com/zzjee/BI/home/reportbi");
+        biEntity.setNum1(num1);
+        biEntity.setNum2(num2);
+        biEntity.setNum3(num3);
+        biEntity.setNum4(num4);
+        return biEntity;
     }
     /**
      * highchart

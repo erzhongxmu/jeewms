@@ -38,19 +38,19 @@
  <script type="text/javascript">
  $(document).ready(function(){
 	 init();
-	 $("#jform_tab .con-wrapper").hide(); //Hide all tab content  
-	 $("#jform_tab li:first").addClass("active").show(); //Activate first tab  
+	 $("#jform_tab .con-wrapper").hide(); //Hide all tab content
+	 $("#jform_tab li:first").addClass("active").show(); //Activate first tab
 	 $("#jform_tab .con-wrapper:first").show(); //Show first tab content
-	 
-	 
-	 //On Click Event  
-    $("#jform_tab li").click(function() {  
-        $("#jform_tab li").removeClass("active"); //Remove any "active" class  
-        $(this).addClass("active"); //Add "active" class to selected tab  
-        $("#jform_tab .con-wrapper").hide(); //Hide all tab content  
-        var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content  
+
+
+	 //On Click Event
+    $("#jform_tab li").click(function() {
+        $("#jform_tab li").removeClass("active"); //Remove any "active" class
+        $(this).addClass("active"); //Add "active" class to selected tab
+        $("#jform_tab .con-wrapper").hide(); //Hide all tab content
+        var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
         $(activeTab).fadeIn(); //Fade in the active content
-        //$(""+activeTab).show();   
+        //$(""+activeTab).show();
         if( $(activeTab).html()!="") {
         	return false;
         }else{
@@ -59,11 +59,11 @@
         	$.post(url, {}, function(data) {
         		 //$(this).attr("tab-ajax-cached", true);
         		$(activeTab).html(data);
-        		
+
             });
-        }  
-        return false;  
-    });  
+        }
+        return false;
+    });
   });
   //初始化下标
 	function resetTrNum(tableId) {
@@ -85,10 +85,10 @@
 			$(this).find('div[name=\'xh\']').html(i+1);
 		});
 	}
-	
+
 	function init(){
     	var tabHead =$("#jform_tab li:first");
-    	var tabBox = $("#jform_tab .con-wrapper:first"); 
+    	var tabBox = $("#jform_tab .con-wrapper:first");
     	var url = tabHead.attr("tab-ajax-url");
     	tabBox.html('正在加载内容，请稍后...');
     	$.post(url, {}, function(data) {
@@ -99,11 +99,11 @@
  </script>
  <body>
   <form id="formobj" action="wmCusCostHController.do?doUpdate" name="formobj" method="post"><input type="hidden" id="btn_sub" class="btn_sub"/>
-				
+
 			<input type="hidden" id="btn_sub" class="btn_sub"/>
 			<input type="hidden" name="id" value='${wmCusCostHPage.id}' >
-			
-			
+
+
 			<div class="tab-wrapper">
 			    <!-- tab -->
 			    <ul class="nav nav-tabs">
@@ -117,94 +117,94 @@
 			          	<b>客户编码：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<t:dictSelect field="cusCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"  
-								dictTable="mv_cus" dictField="cus_code" dictText="cus_name" defaultVal="${wmCusCostHPage.cusCode}" hasLabel="false"  title="客户编码"></t:dictSelect>     
+								<t:dictSelect field="cusCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"
+								dictTable="mv_cus" dictField="cus_code" dictText="cus_name" defaultVal="${wmCusCostHPage.cusCode}" hasLabel="false"  title="客户编码"></t:dictSelect>
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">客户编码</label>
 			          </div>
-			          
-			        
+
+
 			          <div class="col-xs-3 text-center">
 			          	<b>合同编号：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="cusHetongid" name="cusHetongid" type="text" class="form-control" 
+								<input id="cusHetongid" name="cusHetongid" type="text" class="form-control"
 									ignore="ignore"
 								 value='${wmCusCostHPage.cusHetongid}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">合同编号</label>
 			          </div>
 							</div>
-			          
-			        
+
+
 							<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>开始日期：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="beginDate" name="beginDate" type="text" 
+								<input id="beginDate" name="beginDate" type="text"
 									ignore="ignore"
 								style="background: url('plug-in/ace/images/datetime.png') no-repeat scroll right center transparent;"  class="form-control" onClick="WdatePicker()" value="<fmt:formatDate value='${wmCusCostHPage.beginDate}' type='date' pattern='yyyy-MM-dd'/>" />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">开始日期</label>
 			          </div>
-			          
-			        
+
+
 			          <div class="col-xs-3 text-center">
 			          	<b>结束日期：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="endDate" name="endDate" type="text" 
+								<input id="endDate" name="endDate" type="text"
 									ignore="ignore"
 								style="background: url('plug-in/ace/images/datetime.png') no-repeat scroll right center transparent;"  class="form-control" onClick="WdatePicker()" value="<fmt:formatDate value='${wmCusCostHPage.endDate}' type='date' pattern='yyyy-MM-dd'/>" />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">结束日期</label>
 			          </div>
 							</div>
-			          
-			        
+
+
 							<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>备注：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="cusBeizhu" name="cusBeizhu" type="text" class="form-control" 
+								<input id="cusBeizhu" name="cusBeizhu" type="text" class="form-control"
 									ignore="ignore"
 								 value='${wmCusCostHPage.cusBeizhu}' />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">备注</label>
 			          </div>
-			          
-			        
+
+
 			          <div class="col-xs-3 text-center">
 			          	<b>附件：</b>
 			          </div>
-			          
+
 			          	          <div class="col-xs-3">
 			<t:webUploader auto="true" pathValues='${wmCusCostHPage.fujian}'    name="fujian" duplicate="true" fileNumLimit="3"></t:webUploader>
-				
+
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">附件</label>
 			          </div>
 							</div>
-			          
-			        
+
+
 
 			     </div>
 			   </div>
-			   
+
 			   <div class="con-wrapper" style="display: block;"></div>
 	</div>
-		
-			
-			
+
+
+
 <script type="text/javascript">
    $(function(){
     //查看模式情况下,删除和上传附件功能禁止使用
 	if(location.href.indexOf("load=detail")!=-1){
 		$(".jeecgDetail").hide();
 	}
-	
+
 	if(location.href.indexOf("mode=read")!=-1){
 		//查看模式控件禁用
 		$("#formobj").find(":input").attr("disabled","disabled");
@@ -217,7 +217,7 @@
 
   var neibuClickFlag = false;
   function neibuClick() {
-	  neibuClickFlag = true; 
+	  neibuClickFlag = true;
 	  $('#btn_sub').trigger('click');
   }
 </script>
@@ -227,12 +227,12 @@
     <ul class="nav nav-tabs">
 		    	<li role="presentation" tab-ajax-url="wmCusCostHController.do?wmCusCostIList&id=${wmCusCostHPage.id}"><a href="#con-wrapper0">费用项目</a></li>
     </ul>
-    
+
 	     <div class="con-wrapper" id="con-wrapper0" style="display: none;"></div>
 </div>
 
 
-			
+
 		<div align="center"  id = "sub_tr" style="display: none;" > <input type="button" value="提交" onclick="neibuClick();" class="ui_state_highlight"></div>
 		<script src="plug-in/layer/layer.js"></script>
 		<script type="text/javascript">
@@ -306,7 +306,7 @@
 			});
 		});
 		</script>
-		
+
 		</form>
 		<!-- 添加 产品明细 模版 -->
 		<table style="display:none">
@@ -315,36 +315,48 @@
 					 <th scope="row"><div name="xh"></div></th>
 					 <td><input style="width:20px;" type="checkbox" name="ck"/></td>
 						  <td align="left">
-									<t:dictSelect field="wmCusCostIList[#index#].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}" 
-												dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="" hasLabel="false"  title="费用名称"></t:dictSelect>     
+									<t:dictSelect field="wmCusCostIList[#index#].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"
+												dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="" hasLabel="false"  title="费用名称"></t:dictSelect>
 							  <label class="Validform_label" style="display: none;">费用名称</label>
 						  </td>
 						  <td align="left">
-							  	<input name="wmCusCostIList[#index#].costJg" maxlength="32" 
+							  	<input name="wmCusCostIList[#index#].costJg" maxlength="32"
 									ignore="checked"
 							  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 							  <label class="Validform_label" style="display: none;">价格RMB</label>
 						  </td>
+<%--					<td align="left">--%>
+<%--						<input name="wmCusCostIList[#index#].freeDay" maxlength="32"--%>
+<%--							   ignore="checked"--%>
+<%--							   type="text" class="form-control"  style="width:120px;"  datatype="*">--%>
+<%--						<label class="Validform_label" style="display: none;">免费天数</label>--%>
+<%--					</td>--%>
+					<td align="left">
+						<input name="wmCusCostIList[#index#].dataSql" maxlength="32"
+							   ignore="checked"
+							   type="text" class="form-control"  style="width:120px;"  datatype="*">
+						<label class="Validform_label" style="display: none;">数据SQL</label>
+					</td>
 						  <td align="left">
-							  	<input name="wmCusCostIList[#index#].costSl" maxlength="32" 
+							  	<input name="wmCusCostIList[#index#].costSl" maxlength="32"
 									ignore="checked"
 							  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 							  <label class="Validform_label" style="display: none;">税率</label>
 						  </td>
 						  <td align="left">
-							  	<input name="wmCusCostIList[#index#].costZk" maxlength="32" 
+							  	<input name="wmCusCostIList[#index#].costZk" maxlength="32"
 									ignore="checked"
 							  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 							  <label class="Validform_label" style="display: none;">折扣</label>
 						  </td>
 						  <td align="left">
-							  	<input name="wmCusCostIList[#index#].costBhs" maxlength="32" 
+							  	<input name="wmCusCostIList[#index#].costBhs" maxlength="32"
 									ignore="checked"
 							  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 							  <label class="Validform_label" style="display: none;">不含税价RMB</label>
 						  </td>
 						  <td align="left">
-							  	<input name="wmCusCostIList[#index#].costHs" maxlength="32" 
+							  	<input name="wmCusCostIList[#index#].costHs" maxlength="32"
 									ignore="checked"
 							  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 							  <label class="Validform_label" style="display: none;">含税价RMB</label>
@@ -352,6 +364,6 @@
 					</tr>
 				 </tbody>
 		</table>
-	<script src = "webpage/com/zzjee/wm/wmCusCostH.js"></script>	
+	<script src = "webpage/com/zzjee/wm/wmCusCostH.js"></script>
  </body>
  </html>

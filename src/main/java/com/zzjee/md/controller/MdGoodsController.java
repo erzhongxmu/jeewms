@@ -542,11 +542,11 @@ public class MdGoodsController extends BaseController {
             hql=hql+"  or   shpTiaoMa = '" + searchstr + "')";
 
         }
-		if(!StringUtil.isEmpty(searchstr2)) {
-			hql=hql+"  and (shpTiaoMa = '" + searchstr2 + "'";
-            hql=hql+"  or shpBianMa = '" + searchstr2 + "')";
-
-        }
+//		if(!StringUtil.isEmpty(searchstr2)) {
+//			hql=hql+"  and (shpTiaoMa = '" + searchstr2 + "'";
+//            hql=hql+"  or shpBianMa = '" + searchstr2 + "')";
+//
+//        }
 
 		List<MdGoodsEntity> listMdGoodss = mdGoodsService.findHql(hql);
 		D0.setOK(true);
@@ -559,9 +559,9 @@ public class MdGoodsController extends BaseController {
 							break;
 						}
 					}
-					t.setShpYanSe(searchstrin1);
-					t.setPpTuPian(searchstrin2);
-					t.setJjZhongBi(searchstrin3);
+//					t.setShpYanSe(searchstrin1);
+//					t.setPpTuPian(searchstrin2);
+//					t.setJjZhongBi(searchstrin3);
 			result.add(t);
 		}
 

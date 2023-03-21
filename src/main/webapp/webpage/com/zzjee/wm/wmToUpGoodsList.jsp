@@ -36,9 +36,9 @@
 <%--    <t:dgToolBar title="批量删除"  icon="icon-remove" url="wmToUpGoodsController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="wmToUpGoodsController.do?goUpdate" funname="detail"></t:dgToolBar>
     <t:dgToolBar title="导入库存" icon="icon-put" funname="ImportXls"></t:dgToolBar>
-    <t:dgToolBar title="清空基础数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>
-    <t:dgToolBar title="清空库存数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>
-    <t:dgToolBar title="清空业务数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>
+<%--    <t:dgToolBar title="清空基础数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>--%>
+<%--    <t:dgToolBar title="清空库存数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>--%>
+<%--    <t:dgToolBar title="清空业务数据" icon="icon-put" funname="ImportXls"></t:dgToolBar>--%>
     <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
     <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
 

@@ -31,7 +31,7 @@
 		<jackson.version>1.8.4</jackson.version>
 		<jacksonframework.version>1.84</jacksonframework.version>
 		<json-lib.version>2.1</json-lib.version>
-		<fastjson-lib.version>1.2.6</fastjson-lib.version>
+		<fastjson-lib.version>1.2.83</fastjson-lib.version>
 		<gson.version>2.2.4</gson.version>
 		<!-- json start -->
 		<dom4j.version>1.6.1</dom4j.version>
@@ -778,7 +778,6 @@
 			<artifactId>groovy</artifactId>
 			<version>${groovy.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
@@ -806,7 +805,7 @@
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
-			<version>1.8.3</version>
+			<version>1.15.3</version>
 		</dependency>
 		<!-- google 工具类 -->
 		<dependency>
@@ -943,7 +942,11 @@
 			<artifactId>nimbus-jose-jwt</artifactId>
 			<version>6.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.github.dathlin</groupId>
+			<artifactId>HslCommunication</artifactId>
+			<version>3.3.0</version>
+		</dependency>
 
 	</dependencies>
 

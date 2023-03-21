@@ -82,12 +82,12 @@ import java.net.URI;
 import org.springframework.http.MediaType;
 import org.springframework.web.util.UriComponentsBuilder;
 
-/**   
- * @Title: Controller  
+/**
+ * @Title: Controller
  * @Description: 计费日期配置
  * @author erzhongxmu
  * @date 2017-10-11 00:26:00
- * @version V1.0   
+ * @version V1.0
  *
  */
 @Controller
@@ -109,7 +109,7 @@ public class WmDayCostConfController extends BaseController {
 
 	/**
 	 * 计费日期配置列表 页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "list")
@@ -119,7 +119,7 @@ public class WmDayCostConfController extends BaseController {
 
 	/**
 	 * easyui AJAX请求数据
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 * @param dataGrid
@@ -135,17 +135,17 @@ public class WmDayCostConfController extends BaseController {
 		}catch (Exception e) {
 			throw new BusinessException(e.getMessage());
 		}
-		Map<String,Object> map1 = new HashMap<String,Object>();  
-		map1.put("costDate", "desc"); 
-		cq.setOrder(map1); 
+		Map<String,Object> map1 = new HashMap<String,Object>();
+		map1.put("costDate", "desc");
+		cq.setOrder(map1);
 		cq.add();
 		this.wmDayCostConfService.getDataGridReturn(cq, true);
 		TagUtil.datagrid(response, dataGrid);
 	}
-	
+
 	/**
 	 * 删除计费日期配置
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "doDel")
@@ -167,10 +167,10 @@ public class WmDayCostConfController extends BaseController {
 		j.setMsg(message);
 		return j;
 	}
-	
+
 	/**
 	 * 批量删除计费日期配置
-	 * 
+	 *
 	 * @return
 	 */
 	 @RequestMapping(params = "doBatchDel")
@@ -181,7 +181,7 @@ public class WmDayCostConfController extends BaseController {
 		message = "计费日期配置删除成功";
 		try{
 			for(String id:ids.split(",")){
-				WmDayCostConfEntity wmDayCostConf = systemService.getEntity(WmDayCostConfEntity.class, 
+				WmDayCostConfEntity wmDayCostConf = systemService.getEntity(WmDayCostConfEntity.class,
 				id
 				);
 				wmDayCostConf.setCostSf("N");
@@ -201,7 +201,7 @@ public class WmDayCostConfController extends BaseController {
 
 	/**
 	 * 添加计费日期配置
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "doAdd")
@@ -223,7 +223,7 @@ public class WmDayCostConfController extends BaseController {
 	}
 	/**
 	 * 计算每日费用
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "doCount")
@@ -233,7 +233,7 @@ public class WmDayCostConfController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		message = "费用更新成功";
 		try {
-			
+
 			WmDayCostConfEntity t = wmDayCostConfService.get(WmDayCostConfEntity.class, request.getParameter("id"));
 
 			if(t.getCostSf()!=null&&t.getCostSf().equals("Y")){
@@ -242,13 +242,13 @@ public class WmDayCostConfController extends BaseController {
 				return j;
 			}
 			try{
-				task.costcount(DateUtils.date2Str(t.getCostDate(),DateUtils.date_sdf),"Y",t);
+				task.costcountv2(DateUtils.date2Str(t.getCostDate(),DateUtils.date_sdf),"Y",t);
 			}catch (Exception e){
 
 			}
 			t.setCostSf("Y");
 			systemService.updateEntitie(t);
-			
+
 			//计算仓租
 			// 再计算
 		} catch (Exception e) {
@@ -261,7 +261,7 @@ public class WmDayCostConfController extends BaseController {
 	}
 	/**
 	 * 更新计费日期配置
-	 * 
+	 *
 	 * @param ids
 	 * @return
 	 */
@@ -284,11 +284,11 @@ public class WmDayCostConfController extends BaseController {
 		j.setMsg(message);
 		return j;
 	}
-	
+
 
 	/**
 	 * 计费日期配置新增页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "goAdd")
@@ -301,7 +301,7 @@ public class WmDayCostConfController extends BaseController {
 	}
 	/**
 	 * 计费日期配置编辑页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "goUpdate")
@@ -312,10 +312,10 @@ public class WmDayCostConfController extends BaseController {
 		}
 		return new ModelAndView("com/zzjee/wm/wmDayCostConf-update");
 	}
-	
+
 	/**
 	 * 导入功能跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "upload")
@@ -323,10 +323,10 @@ public class WmDayCostConfController extends BaseController {
 		req.setAttribute("controller_name","wmDayCostConfController");
 		return new ModelAndView("common/upload/pub_excel_upload");
 	}
-	
+
 	/**
 	 * 导出excel
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 */
@@ -345,7 +345,7 @@ public class WmDayCostConfController extends BaseController {
 	}
 	/**
 	 * 导出excel 使模板
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 */
@@ -359,13 +359,13 @@ public class WmDayCostConfController extends BaseController {
     	modelMap.put(NormalExcelConstants.DATA_LIST,new ArrayList());
     	return NormalExcelConstants.JEECG_EXCEL_VIEW;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping(params = "importExcel", method = RequestMethod.POST)
 	@ResponseBody
 	public AjaxJson importExcel(HttpServletRequest request, HttpServletResponse response) {
 		AjaxJson j = new AjaxJson();
-		
+
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
@@ -393,14 +393,14 @@ public class WmDayCostConfController extends BaseController {
 		}
 		return j;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<WmDayCostConfEntity> list() {
 		List<WmDayCostConfEntity> listWmDayCostConfs=wmDayCostConfService.getList(WmDayCostConfEntity.class);
 		return listWmDayCostConfs;
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> get(@PathVariable("id") String id) {

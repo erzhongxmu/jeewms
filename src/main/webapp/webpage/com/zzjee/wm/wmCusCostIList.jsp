@@ -6,15 +6,15 @@
 	      <div class="col-md-12 layout-header">
 	        <button id="addBtn_WmCusCostI" type="button" class="btn btn-default">添加</button>
 	        <button id="delBtn_WmCusCostI" type="button" class="btn btn-default">删除</button>
-	        <script type="text/javascript"> 
-			$('#addBtn_WmCusCostI').bind('click', function(){   
+	        <script type="text/javascript">
+			$('#addBtn_WmCusCostI').bind('click', function(){
 		 		 var tr =  $("#add_wmCusCostI_table_template tr").clone();
 			 	 $("#add_wmCusCostI_table").append(tr);
 			 	 resetTrNum('add_wmCusCostI_table');
 			 	 return false;
-		    });  
-			$('#delBtn_WmCusCostI').bind('click', function(){   
-		       $("#add_wmCusCostI_table").find("input:checked").parent().parent().remove();   
+		    });
+			$('#delBtn_WmCusCostI').bind('click', function(){
+		       $("#add_wmCusCostI_table").find("input:checked").parent().parent().remove();
 		        resetTrNum('add_wmCusCostI_table');
 		        return false;
 		    });
@@ -30,7 +30,7 @@
 		</script>
 	      </div>
 	    </div>
-<div style="margin: 0 15px; background-color: white;">    
+<div style="margin: 0 15px; background-color: white;">
 	    <!-- Table -->
       <table id="wmCusCostI_table" class="table table-bordered table-hover" style="margin-bottom: 0;">
 		<thead>
@@ -40,6 +40,12 @@
 					  <th>
 							费用名称
 					  </th>
+<%--			  <th>--%>
+<%--				  免费天数--%>
+<%--			  </th>--%>
+			  <th>
+				  数据SQL
+			  </th>
 					  <th>
 							价格RMB
 					  </th>
@@ -57,8 +63,8 @@
 					  </th>
 	      </tr>
 	    </thead>
-        
-	<tbody id="add_wmCusCostI_table">	
+
+	<tbody id="add_wmCusCostI_table">
 	<c:if test="${fn:length(wmCusCostIList)  <= 0 }">
 			<tr>
 				<th scope="row"><div name="xh"></div></th>
@@ -74,12 +80,22 @@
 					<input name="wmCusCostIList[0].sysCompanyCode" type="hidden"/>
 					<input name="wmCusCostIList[0].cusCostId" type="hidden"/>
 				  <td>
-							<t:dictSelect field="wmCusCostIList[0].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"  
-										dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="${wmCusCostIPage.costCode}" hasLabel="false"  title="费用名称"></t:dictSelect>     
+							<t:dictSelect field="wmCusCostIList[0].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"
+										dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="${wmCusCostIPage.costCode}" hasLabel="false"  title="费用名称"></t:dictSelect>
 					  <label class="Validform_label" style="display: none;">费用名称</label>
 					</td>
+<%--				<td>--%>
+<%--					<input name="wmCusCostIList[0].freeDay" maxlength="32"--%>
+<%--						   type="text" class="form-control"  style="width:120px;"  datatype="*">--%>
+<%--					<label class="Validform_label" style="display: none;">免费天数</label>--%>
+<%--				</td>--%>
+				<td>
+					<input name="wmCusCostIList[0].dataSql" maxlength="32"
+						   type="text" class="form-control"  style="width:120px;"  datatype="*">
+					<label class="Validform_label" style="display: none;">数据SQL</label>
+				</td>
 				  <td>
-					  	<input name="wmCusCostIList[0].costJg" maxlength="32" 
+					  	<input name="wmCusCostIList[0].costJg" maxlength="32"
 					  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 					  <label class="Validform_label" style="display: none;">价格RMB</label>
 					</td>
@@ -94,12 +110,12 @@
 					  <label class="Validform_label" style="display: none;">折扣</label>
 					</td>
 				  <td>
-					  	<input name="wmCusCostIList[0].costBhs" maxlength="32" 
+					  	<input name="wmCusCostIList[0].costBhs" maxlength="32"
 					  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 					  <label class="Validform_label" style="display: none;">不含税价RMB</label>
 					</td>
 				  <td>
-					  	<input name="wmCusCostIList[0].costHs" maxlength="32" 
+					  	<input name="wmCusCostIList[0].costHs" maxlength="32"
 					  		type="text" class="form-control"  style="width:120px;"  datatype="*">
 					  <label class="Validform_label" style="display: none;">含税价RMB</label>
 					</td>
@@ -121,12 +137,22 @@
 					<input name="wmCusCostIList[${stuts.index }].sysCompanyCode" type="hidden" value="${poVal.sysCompanyCode }"/>
 					<input name="wmCusCostIList[${stuts.index }].cusCostId" type="hidden" value="${poVal.cusCostId }"/>
 				   <td align="left">
-							<t:dictSelect field="wmCusCostIList[${stuts.index }].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"  
-										dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="${poVal.costCode }" hasLabel="false"  title="费用名称"></t:dictSelect>     
+							<t:dictSelect field="wmCusCostIList[${stuts.index }].costCode" type="list" extendJson="{class:'form-control',style:'width:150px'}"
+										dictTable="ba_cost" dictField="cost_code" dictText="cost_name" defaultVal="${poVal.costCode }" hasLabel="false"  title="费用名称"></t:dictSelect>
 					  <label class="Validform_label" style="display: none;">费用名称</label>
 				   </td>
+<%--				<td align="left">--%>
+<%--					<input name="wmCusCostIList[${stuts.index }].freeDay" maxlength="32"--%>
+<%--						   type="text" class="form-control"  style="width:120px;"  datatype="*" value="${poVal.freeDay }">--%>
+<%--					<label class="Validform_label" style="display: none;">免费天数</label>--%>
+<%--				</td>--%>
+				<td align="left">
+					<input name="wmCusCostIList[${stuts.index }].dataSql" maxlength="32"
+						   type="text" class="form-control"  style="width:120px;"  datatype="*" value="${poVal.dataSql }">
+					<label class="Validform_label" style="display: none;">数据SQL</label>
+				</td>
 				   <td align="left">
-					  	<input name="wmCusCostIList[${stuts.index }].costJg" maxlength="32" 
+					  	<input name="wmCusCostIList[${stuts.index }].costJg" maxlength="32"
 					  		type="text" class="form-control"  style="width:120px;"  datatype="*" value="${poVal.costJg }">
 					  <label class="Validform_label" style="display: none;">价格RMB</label>
 				   </td>
@@ -146,12 +172,12 @@
 					  <label class="Validform_label" style="display: none;">不含税价RMB</label>
 				   </td>
 				   <td align="left">
-					  	<input name="wmCusCostIList[${stuts.index }].costHs" maxlength="32" 
+					  	<input name="wmCusCostIList[${stuts.index }].costHs" maxlength="32"
 					  		type="text" class="form-control"  style="width:120px;"  datatype="*" value="${poVal.costHs }">
 					  <label class="Validform_label" style="display: none;">含税价RMB</label>
 				   </td>
    			</tr>
 		</c:forEach>
-	</c:if>	
+	</c:if>
 	</tbody>
 </table>

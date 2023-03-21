@@ -639,6 +639,7 @@ wmomController {
 		for(wmi1entity t: wmi1entityList){
 			RfidBuseEntity rf = new RfidBuseEntity();
 			rf.setCreateBy(username);
+			rf.setCreateDate(now());
 			rf.setRfidType(rfidType);
 			rf.setRfidBuseno(rfidbuseno);
 			rf.setRfidBusecont(rfidbusecon);
@@ -655,4 +656,29 @@ wmomController {
 		}
 		return Result.success("RFID保存成功");
 	}
+
+	@RequestMapping(value = "/weightsave/{username}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	@ApiOperation(value = "weight保存", produces = "application/json", httpMethod = "POST")
+	public synchronized ResponseMessage<?> weight_save(@PathVariable("username") String username,
+										  @RequestParam(value="searchstr", required=false)String searchstr ) {
+
+
+			RfidBuseEntity rf = new RfidBuseEntity();
+			rf.setCreateBy(username);
+		rf.setCreateDate(now());
+			rf.setRfidType("weight");
+			rf.setRfidBuseno("1");
+			Double d = Double.parseDouble(searchstr)/100;
+			rf.setRfidBusecont(d.toString());
+
+
+		try{
+			systemService.save(rf);
+		}catch (Exception e){
+			Result.error("保存失败");
+		}
+		return Result.success("保存成功");
+	}
+
 }

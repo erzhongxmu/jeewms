@@ -13,7 +13,7 @@
     <t:dgCol title="更新日期"  field="updateDate" formatter="yyyy-MM-dd" hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
-    <t:dgCol title="中文全称"  field="zhongWenQch"   query="true" queryMode="single"  width="160"></t:dgCol>
+    <t:dgCol title="名称"  field="zhongWenQch"   query="true" queryMode="single"  width="160"></t:dgCol>
     <t:dgCol title="合同号"  field="zhuJiMa"   query="true" queryMode="single"  width="80"></t:dgCol>
     <t:dgCol title="简称"  field="keHuJianCheng"  hidden="true"   queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="编码"  field="keHuBianMa"   query="true" queryMode="single"  width="120"></t:dgCol>

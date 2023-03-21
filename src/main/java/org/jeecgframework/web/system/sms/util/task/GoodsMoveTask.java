@@ -22,11 +22,11 @@ import java.util.*;
 import static com.xiaoleilu.hutool.date.DateTime.now;
 
 /**
- * 
- * @ClassName:SmsSendTask 所有信息的发送定时任务类
- * @Description: TODO
+ *
+ * @ClassName:SmsSendTask
+ * @Description: 对启用货品ABC分类的，自动根据效期生成库存转移
  * @date 2014-11-13 下午5:06:34
- * 
+ *
  */
 @Service("goodsMoveTask")
 public class GoodsMoveTask {

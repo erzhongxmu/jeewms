@@ -38,25 +38,29 @@
 
 					     	  ignore="ignore"
 					     	  />
+<%--						<t:userSelect title="用户名称" selectedNamesInputId="userNames" selectedIdsInputId="appuserCode" windowWidth="600px" windowHeight="300px"></t:userSelect>--%>
+
+
+					<%--						<t:userSelect selectedNamesInputId="userNames" selectedIdsInputId="appuserCode" > </t:userSelect>--%>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">用户编号</label>
 						</td>
 				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							用户名称:
-						</label>
-					</td>
-					<td class="value">
-					     	 <input id="appuserName" name="appuserName" type="text" style="width: 150px" class="inputxt"
+<%--				<tr>--%>
+<%--					<td align="right">--%>
+<%--						<label class="Validform_label">--%>
+<%--							用户名称:--%>
+<%--						</label>--%>
+<%--					</td>--%>
+<%--					<td class="value">--%>
+<%--					     	 <input id="appuserName" name="appuserName" type="text" style="width: 150px" class="inputxt"--%>
 
-					     	  ignore="ignore"
-					     	  />
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户名称</label>
-						</td>
-				</tr>
+<%--					     	  ignore="ignore"--%>
+<%--					     	  />--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">用户名称</label>--%>
+<%--						</td>--%>
+<%--				</tr>--%>
 <%--				<tr>--%>
 <%--					<td align="right">--%>
 <%--						<label class="Validform_label">--%>
@@ -78,28 +82,28 @@
 					</td>
 					<td class="value">
 					     	 <input id="approleCode" name="approleCode" type="text" style="width: 150px" class="inputxt"
-									onclick="inputClick(this,'approle_code,approle_name','pop_app_role')"
+									onclick="inputClick(this,'approle_code','pop_app_role')" multiple="multiple"
 					     	  ignore="ignore"
 					     	  />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">角色编号</label>
 						</td>
 				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							角色名称:
-						</label>
-					</td>
-					<td class="value">
-					     	 <input id="approleName" name="approleName" type="text" style="width: 150px" class="inputxt"
+<%--				<tr>--%>
+<%--					<td align="right">--%>
+<%--						<label class="Validform_label">--%>
+<%--							角色名称:--%>
+<%--						</label>--%>
+<%--					</td>--%>
+<%--					<td class="value">--%>
+<%--					     	 <input id="approleName" name="approleName" type="text" style="width: 150px" class="inputxt"--%>
 
-					     	  ignore="ignore"
-					     	  />
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">角色名称</label>
-						</td>
-				</tr>
+<%--					     	  ignore="ignore"--%>
+<%--					     	  />--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">角色名称</label>--%>
+<%--						</td>--%>
+<%--				</tr>--%>
 			</table>
 		</t:formvalid>
  </body>

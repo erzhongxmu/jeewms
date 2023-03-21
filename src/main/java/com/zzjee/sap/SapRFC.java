@@ -49,15 +49,7 @@ public class SapRFC {
 		String language  ;
 		String host  ;
 		String system ;
-		//String router  ;
-		// set properties参数，
 		try{
-//			clientName = "300";
-//			userid = "DY_EZCAO";
-//			password = "123123";
-//			language = "ZH";
-//			host = "192.168.254.99";
-//			system = "00";
 
 			 clientName = ResourceUtil.getConfigByName("rfc.clientName");
 			 userid = ResourceUtil.getConfigByName("rfc.userid");

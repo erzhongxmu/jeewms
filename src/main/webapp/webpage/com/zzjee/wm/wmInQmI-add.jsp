@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="online/template/ledefault/css/bootstrap-theme.css">
   <link rel="stylesheet" href="online/template/ledefault/css/bootstrap.css">
   <link rel="stylesheet" href="online/template/ledefault/css/app.css">
-  
+
   <link rel="stylesheet" href="plug-in/Validform/css/metrole/style.css" type="text/css"/>
   <link rel="stylesheet" href="plug-in/Validform/css/metrole/tablefrom.css" type="text/css"/>
-  
+
   <script type="text/javascript" src="plug-in/jquery/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="plug-in/tools/dataformat.js"></script>
   <script type="text/javascript" src="plug-in/easyui/jquery.easyui.min.1.3.2.js"></script>
@@ -36,7 +36,7 @@
 
 	<script type="text/javascript">
   //编写自定义JS代码
-  
+
   function gethuozhu(){
 	ajaxurl="wmInQmIController.do?doGethuozhu&noticeid="+$('#imNoticeId').val();
 	$.get(ajaxurl).done(function (data) {
@@ -45,11 +45,11 @@
         $('#custext').val(obj.obj.zhongWenQch);
     });
 }
-  
+
 function gettext(){
 	ajaxurl="wmInQmIController.do?doGettext&goodsid="+$('#goodsId').val()+"&noticeid="+$('#imNoticeId').val();
 	$.get(ajaxurl).done(function (data) {
-        var obj = eval('(' + data + ')');;      
+        var obj = eval('(' + data + ')');;
         console.log(obj);
         if(!obj.success){
             $('#goodstext').val(obj.msg);
@@ -58,17 +58,17 @@ function gettext(){
 	        $('#goodstext').val(obj.obj.shpMingCheng);
 	        $('#qmOkQuat').val(obj.obj.chlShl);
         }
-        
+
     });
 }
 function  setbatch(){
 	$('#goodsBatch').val( $('#proData').val())
 }
 
-window.onload = function() { 
+window.onload = function() {
 	gethuozhu();
 	gettext();
-	}; 
+	};
   </script>
 </head>
 
@@ -77,8 +77,9 @@ window.onload = function() {
 	<%--<t:formvalid formid="formobj" dialog="true" usePlugin="password"   layout="div" >--%>
 			<input type="hidden" id="btn_sub" class="btn_sub"/>
 			<input type="hidden" id="id" name="id"/>
+			<input type="hidden" id="imNoticeItem" name="imNoticeItem" value='${wmInQmIPage.imNoticeItem}'/>
 			<input type="hidden" id="binSta" name="binSta" value="N"/>
-			
+
 			<div class="tab-wrapper">
 			    <!-- tab -->
 			    <ul class="nav nav-tabs">
@@ -92,7 +93,7 @@ window.onload = function() {
 			          	<b>到货通知单：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="imNoticeId" name="imNoticeId" type="text" class="form-control" 
+								<input id="imNoticeId" name="imNoticeId" type="text" class="form-control"
 									ignore="ignore" onchange="gethuozhu()"  datatype="*" value='${wmInQmIPage.imNoticeId}'
 								 />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
@@ -107,7 +108,7 @@ window.onload = function() {
 			          	<b>商品编码：</b>
 			          </div>
 			          	          <div class="col-xs-3">
-								<input id="goodsId" name="goodsId" type="text" class="form-control"  
+								<input id="goodsId" name="goodsId" type="text" class="form-control"
 									ignore="ignore" datatype="*" onchange="gettext()"  value='${wmInQmIPage.goodsId}'
 								 />
 								<span class="Validform_checktip" style="float:left;height:0px;"> </span>
@@ -115,9 +116,9 @@ window.onload = function() {
 			          </div>
 			          				          			          <div class="col-xs-3 text-center">
 			         <input id="goodstext" readonly="readonly"  style="width:320px;" class="form-control" />
-			          </div>	  
+			          </div>
 						</div>
-			          
+
 			        				<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>数量(${wmInQmIPage.goodsUnit}) ：</b>
@@ -127,8 +128,8 @@ window.onload = function() {
 
 						  <input id="qmOkQuat" name="qmOkQuat" type="text" class="form-control"
 									ignore="checked" value='${wmInQmIPage.qmOkQuat}' style="width:80px;"
-								 datatype="*" />   
-							
+								 datatype="*" />
+
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">数量</label>
 			          </div>
@@ -149,15 +150,15 @@ window.onload = function() {
 
 						</div>
 
-	
-						
+
+
 					<div class="row show-grid">
 			          <div class="col-xs-3 text-center">
 			          	<b>生产日期：</b>
 			          </div>
 			          <div class="col-xs-3">
 								<input id="proData" name="proData" type="text"
-									ignore="checked" onchange="setbatch()" 
+									ignore="checked" onchange="setbatch()"
 								  style="background: url('plug-in/ace/images/datetime.png') no-repeat scroll right center transparent;"  class="form-control" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"    type="date"  />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">生产日期</label>
@@ -166,7 +167,7 @@ window.onload = function() {
 			          	<b>批次：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="goodsBatch" name="goodsBatch" type="text" class="form-control" 
+								<input id="goodsBatch" name="goodsBatch" type="text" class="form-control"
 									ignore="ignore"
 								 />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
@@ -179,7 +180,7 @@ window.onload = function() {
 			          	<b>收货温度（°C）：</b>
 			          </div>
 			          <div class="col-xs-3">
-								<input id="recDeg" name="recDeg" type="text" class="form-control" 
+								<input id="recDeg" name="recDeg" type="text" class="form-control"
 									ignore="ignore"
 								 />
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
@@ -190,10 +191,10 @@ window.onload = function() {
 			          </div>
 			          <div class="col-xs-3">
 			          <t:dictSelect field="itemText" type="radio" extendJson="{class:'form-control'}"  defaultVal="良品"
-								typeGroupCode="sf_lp" hasLabel="false"  title="品质"></t:dictSelect>     
+								typeGroupCode="sf_lp" hasLabel="false"  title="品质"></t:dictSelect>
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
-			          
-				
+
+
 						<span class="Validform_checktip" style="float:left;height:0px;"></span>
 						<label class="Validform_label" style="display: none">备注</label>
 			          </div>
@@ -210,8 +211,18 @@ window.onload = function() {
 						  <span class="Validform_checktip" style="float:left;height:0px;"></span>
 						  <label class="Validform_label" style="display: none">托盘</label>
 					  </div>
-					  </div>
 
+						  <div class="col-xs-3 text-center">
+							  <b>入重量：</b>
+						  </div>
+						  <div class="col-xs-3">
+							  <input id="baseInGoodscount" name="baseInGoodscount" type="text" class="form-control"
+									 value='${wmInQmIPage.baseInGoodscount}'
+							  />
+							  <span class="Validform_checktip" style="float:left;height:0px;"></span>
+							  <label class="Validform_label" style="display: none">入重量</label>
+						  </div>
+					  </div>
 			          <div class="row" id = "sub_tr" style="display: none;">
 				        <div class="col-xs-12 layout-header">
 				          <div class="col-xs-6"></div>
@@ -220,7 +231,7 @@ window.onload = function() {
 				      </div>
 			     </div>
 			   </div>
-			   
+
 			   <div class="con-wrapper" id="con-wrapper2" style="display: block;"></div>
 			 </div>
 		<%--<div style="margin:3px auto"><button onclick="sub('formobj');">验收</button></div>--%>
@@ -270,5 +281,5 @@ window.onload = function() {
 
 </script>
  </body>
-<script src = "webpage/com/zzjee/wm/wmInQmI.js"></script>		
+<script src = "webpage/com/zzjee/wm/wmInQmI.js"></script>
 </html>

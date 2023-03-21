@@ -355,7 +355,7 @@ public class WvGiController extends BaseController {
         String hql = " from WvGiEntity where downSta is null ";
         D0.setOK(true);
         if (!StringUtil.isEmpty(searchstr)) {
-            hql = hql + "  and orderId = '" + searchstr + "'";
+            hql = hql + "  and orderId = '" + searchstr + "'" +   "  or imCusCode like '%" + searchstr + "%'";
         }
         if (!StringUtil.isEmpty(searchstr2)) {
             try {

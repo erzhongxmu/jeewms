@@ -37,24 +37,26 @@
 						     	 <input id="appuserCode" name="appuserCode" type="text" style="width: 150px" class="inputxt"
 						     	 ignore="ignore"
 						     	 value='${wmsAppUserPage.appuserCode}'>
+
+
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">用户编号</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								用户名称:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="appuserName" name="appuserName" type="text" style="width: 150px" class="inputxt"
-						     	 ignore="ignore"
-						     	 value='${wmsAppUserPage.appuserName}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">用户名称</label>
-						</td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td align="right">--%>
+<%--							<label class="Validform_label">--%>
+<%--								用户名称:--%>
+<%--							</label>--%>
+<%--						</td>--%>
+<%--						<td class="value">--%>
+<%--						     	 <input id="appuserName" name="appuserName" type="text" style="width: 150px" class="inputxt"--%>
+<%--						     	 ignore="ignore"--%>
+<%--						     	 value='${wmsAppUserPage.appuserName}'>--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">用户名称</label>--%>
+<%--						</td>--%>
+<%--					</tr>--%>
 <%--					<tr>--%>
 <%--						<td align="right">--%>
 <%--							<label class="Validform_label">--%>
@@ -77,26 +79,26 @@
 						</td>
 						<td class="value">
 						     	 <input id="approleCode" name="approleCode" type="text" style="width: 150px" class="inputxt"
-						     	 ignore="ignore"  onclick="inputClick(this,'approle_code,approle_name','pop_app_role')"
+						     	 ignore="ignore"  onclick="inputClick(this,'approle_code','pop_app_role')" multiple="multiple"
 						     	 value='${wmsAppUserPage.approleCode}'>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">角色编号</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								角色名称:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="approleName" name="approleName" type="text" style="width: 150px" class="inputxt"
-						     	 ignore="ignore"
-						     	 value='${wmsAppUserPage.approleName}'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">角色名称</label>
-						</td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td align="right">--%>
+<%--							<label class="Validform_label">--%>
+<%--								角色名称:--%>
+<%--							</label>--%>
+<%--						</td>--%>
+<%--						<td class="value">--%>
+<%--						     	 <input id="approleName" name="approleName" type="text" style="width: 150px" class="inputxt"--%>
+<%--						     	 ignore="ignore"--%>
+<%--						     	 value='${wmsAppUserPage.approleName}'>--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">角色名称</label>--%>
+<%--						</td>--%>
+<%--					</tr>--%>
 			</table>
 		</t:formvalid>
  </body>

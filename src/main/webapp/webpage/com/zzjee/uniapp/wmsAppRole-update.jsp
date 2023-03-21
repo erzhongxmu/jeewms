@@ -78,26 +78,26 @@
 						<td class="value">
 						  	 	<textarea id="appmodelCode" style="width:600px;" class="inputxt" rows="6" name="appmodelCode"
 						  	 	ignore="ignore"
-										  onclick="inputClick(this,'appmodel_code,appmodel_name','pop_app_fun')"
+										  onclick="inputClick(this,'appmodel_code','pop_app_fun')" multiple="multiple"
 						  	 	>${wmsAppRolePage.appmodelCode}</textarea>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">app模块编号</label>
 						</td>
 					</tr>
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								app模块名称:
-							</label>
-						</td>
-						<td class="value">
-						  	 	<textarea id="appmodelName" style="width:600px;" class="inputxt" rows="6" name="appmodelName"
-						  	 	ignore="ignore"
-						  	 	>${wmsAppRolePage.appmodelName}</textarea>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">app模块名称</label>
-						</td>
-					</tr>
+<%--					<tr>--%>
+<%--						<td align="right">--%>
+<%--							<label class="Validform_label">--%>
+<%--								app模块名称:--%>
+<%--							</label>--%>
+<%--						</td>--%>
+<%--						<td class="value">--%>
+<%--						  	 	<textarea id="appmodelName" style="width:600px;" class="inputxt" rows="6" name="appmodelName"--%>
+<%--						  	 	ignore="ignore"--%>
+<%--						  	 	>${wmsAppRolePage.appmodelName}</textarea>--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">app模块名称</label>--%>
+<%--						</td>--%>
+<%--					</tr>--%>
 			</table>
 		</t:formvalid>
  </body>

@@ -79,26 +79,26 @@
 					<td class="value">
 						  	 <textarea style="width:600px;" class="inputxt" rows="6" id="appmodelCode" name="appmodelCode"
 						  	 ignore="ignore"
-									   onclick="inputClick(this,'appmodel_code,appmodel_name','pop_app_fun')"
+									   onclick="inputClick(this,'appmodel_code','pop_app_fun')" multiple="multiple"
 							 ></textarea>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">app模块编号</label>
 						</td>
 				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							app模块名称:
-						</label>
-					</td>
-					<td class="value">
-						  	 <textarea style="width:600px;" class="inputxt" rows="6" id="appmodelName" name="appmodelName"
-						  	 ignore="ignore"
-						  	 ></textarea>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">app模块名称</label>
-						</td>
-				</tr>
+<%--				<tr>--%>
+<%--					<td align="right">--%>
+<%--						<label class="Validform_label">--%>
+<%--							app模块名称:--%>
+<%--						</label>--%>
+<%--					</td>--%>
+<%--					<td class="value">--%>
+<%--						  	 <textarea style="width:600px;" class="inputxt" rows="6" id="appmodelName" name="appmodelName"--%>
+<%--						  	 ignore="ignore"--%>
+<%--						  	 ></textarea>--%>
+<%--							<span class="Validform_checktip"></span>--%>
+<%--							<label class="Validform_label" style="display: none;">app模块名称</label>--%>
+<%--						</td>--%>
+<%--				</tr>--%>
 			</table>
 		</t:formvalid>
  </body>

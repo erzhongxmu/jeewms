@@ -71,12 +71,12 @@ import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
 
 import java.util.HashMap;
-/**   
+/**
  * @Title: Controller
  * @Description: 客户费用
  * @author erzhongxmu
  * @date 2017-09-26 15:12:32
- * @version V1.0   
+ * @version V1.0
  *
  */
 @Controller
@@ -98,7 +98,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * 客户费用列表 页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "list")
@@ -108,7 +108,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * easyui AJAX请求数据
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 * @param dataGrid
@@ -132,7 +132,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * 删除客户费用
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "doDel")
@@ -155,7 +155,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * 批量删除客户费用
-	 * 
+	 *
 	 * @return
 	 */
 	 @RequestMapping(params = "doBatchDel")
@@ -182,7 +182,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * 添加客户费用
-	 * 
+	 *
 	 * @param ids
 	 * @return
 	 */
@@ -206,7 +206,7 @@ public class WmCusCostHController extends BaseController {
 	}
 	/**
 	 * 更新客户费用
-	 * 
+	 *
 	 * @param ids
 	 * @return
 	 */
@@ -230,7 +230,7 @@ public class WmCusCostHController extends BaseController {
 
 	/**
 	 * 客户费用新增页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "goAdd")
@@ -241,10 +241,10 @@ public class WmCusCostHController extends BaseController {
 		}
 		return new ModelAndView("com/zzjee/wm/wmCusCostH-add");
 	}
-	
+
 	/**
 	 * 客户费用编辑页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "goUpdate")
@@ -255,16 +255,16 @@ public class WmCusCostHController extends BaseController {
 		}
 		return new ModelAndView("com/zzjee/wm/wmCusCostH-update");
 	}
-	
-	
+
+
 	/**
 	 * 加载明细列表[费用项目]
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "wmCusCostIList")
 	public ModelAndView wmCusCostIList(WmCusCostHEntity wmCusCostH, HttpServletRequest req) {
-	
+
 		//===================================================================================
 		//获取参数
 		Object id0 = wmCusCostH.getId();
@@ -284,6 +284,9 @@ public class WmCusCostHController extends BaseController {
 						t.setCostZk(baCostConfEntity.getCostZk());
 						t.setCostBhs(baCostConfEntity.getCostBhs());
 						t.setCostHs(baCostConfEntity.getCostHs());
+						t.setFreeDay(baCostConfEntity.getFreeDay());
+						t.setFreeDay2(baCostConfEntity.getFreeDay2());
+						t.setDataSql(baCostConfEntity.getDataSql());
 						wmCusCostIEntityList.add(t);
 					}
 				}catch(Exception e){
@@ -403,14 +406,14 @@ public class WmCusCostHController extends BaseController {
 		return new ModelAndView("common/upload/pub_excel_upload");
 	}
 
- 	
+
  	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<WmCusCostHEntity> list() {
 		List<WmCusCostHEntity> listWmCusCostHs=wmCusCostHService.getList(WmCusCostHEntity.class);
 		return listWmCusCostHs;
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> get(@PathVariable("id") String id) {
@@ -420,7 +423,7 @@ public class WmCusCostHController extends BaseController {
 		}
 		return new ResponseEntity(task, HttpStatus.OK);
 	}
- 	
+
  	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<?> create(@RequestBody WmCusCostHPage wmCusCostHPage, UriComponentsBuilder uriBuilder) {
@@ -432,7 +435,7 @@ public class WmCusCostHController extends BaseController {
 
 		//保存
 		List<WmCusCostIEntity> wmCusCostIList =  wmCusCostHPage.getWmCusCostIList();
-		
+
 		WmCusCostHEntity wmCusCostH = new WmCusCostHEntity();
 		try{
 			MyBeanUtils.copyBeanNotNull2Bean(wmCusCostH,wmCusCostHPage);
@@ -449,7 +452,7 @@ public class WmCusCostHController extends BaseController {
 
 		return new ResponseEntity(headers, HttpStatus.CREATED);
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> update(@RequestBody WmCusCostHPage wmCusCostHPage) {
 		//调用JSR303 Bean Validator进行校验，如果出错返回含400错误码及json格式的错误信息.
@@ -460,7 +463,7 @@ public class WmCusCostHController extends BaseController {
 
 		//保存
 		List<WmCusCostIEntity> wmCusCostIList =  wmCusCostHPage.getWmCusCostIList();
-		
+
 		WmCusCostHEntity wmCusCostH = new WmCusCostHEntity();
 		try{
 			MyBeanUtils.copyBeanNotNull2Bean(wmCusCostH,wmCusCostHPage);
@@ -481,7 +484,7 @@ public class WmCusCostHController extends BaseController {
 	}
 	/**
 	 * 获取文件附件信息
-	 * 
+	 *
 	 * @param id wmCusCostH主键id
 	 */
 	@RequestMapping(params = "getFiles")

@@ -14,6 +14,9 @@
     <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="费用名称"  field="costCode"   query="true" queryMode="single" dictionary="ba_cost,cost_code,cost_name"  width="120"></t:dgCol>
+<%--    <t:dgCol title="免费天数"  field="freeDay"    queryMode="single"  width="120"></t:dgCol>--%>
+<%--    <t:dgCol title="免费天数2"  field="freeDay2"    queryMode="single"  width="120"></t:dgCol>--%>
+    <t:dgCol title="数据SQL"  field="dataSql"    queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="价格RMB"  field="costJg"    queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="税率"  field="costSl"    queryMode="single"  width="120"></t:dgCol>
     <t:dgCol title="折扣"  field="costZk"    queryMode="single"  width="120"></t:dgCol>

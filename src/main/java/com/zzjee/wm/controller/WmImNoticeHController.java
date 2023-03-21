@@ -42,6 +42,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -2301,6 +2302,10 @@ public class WmImNoticeHController extends BaseController {
                 .getWmImNoticeIList();
         AjaxJson j = new AjaxJson();
         String message = "进货通知添加成功";
+        if(CollectionUtils.isEmpty(wmImNoticeIList)){
+             message = "进货通知明细不能为空";
+            throw new BusinessException(message);
+        }
         try {
 
             String noticeid =  wmUtil.getNextNoticeid(wmImNoticeH.getOrderTypeCode()) ;

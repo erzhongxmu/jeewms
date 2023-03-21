@@ -1122,6 +1122,7 @@ function inputClick(obj,name,code) {
             height: 400,
             cache:false,
             ok: function(){
+                console.log("")
                 iframe = this.iframe.contentWindow;
                 var selected = iframe.getSelectRows();
                 if (selected == '' || selected == null ){

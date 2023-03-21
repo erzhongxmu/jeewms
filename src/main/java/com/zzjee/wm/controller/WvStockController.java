@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.zzjee.wmutil.wmUtil;
 import org.apache.log4j.Logger;
 import org.apache.log4j.MDC;
+import org.jeecgframework.web.system.pojo.base.TSBaseUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -79,6 +80,8 @@ import java.net.URI;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import static com.xiaoleilu.hutool.date.DateTime.now;
 
 /**
  * @author erzhongxmu
@@ -566,6 +569,78 @@ public class WvStockController extends BaseController {
         return j;
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<?>  doSttpda(@RequestParam (value = "id", required = false) String id ,
+                                       @RequestParam (value = "username", required = false) String username ,
+                                       @RequestParam(value = "binto", required = false) String binto ,
+                                       @RequestParam(value = "tinto", required = false) String tinto ,
+                                       @RequestParam(value = "goodsqua", required = false) String goodsqua,
+                                       UriComponentsBuilder uriBuilder) {
+        String message = null;
+        ResultDO D0 = new  ResultDO();
+        message = "生成转移单成功";
+        WvStockEntity t = wvStockService.get(WvStockEntity.class, id);
+        try {
+            WmToMoveGoodsEntity wmtomove = new WmToMoveGoodsEntity();
+            wmtomove.setCreateBy(username);
+            //查询create_name
+            TSBaseUser user = systemService.findUniqueByProperty(TSBaseUser.class, "userName", wmtomove.getCreateBy());
+            if (user != null) {
+                wmtomove.setCreateName(user.getRealName());
+            }
+            wmtomove.setCreateDate(now());
+            wmtomove.setOrderTypeCode("TPZY");
+            wmtomove.setBinFrom(t.getKuWeiBianMa());
+            wmtomove.setBinTo(t.getKuWeiBianMa());
+            if(StringUtil.isNotEmpty(binto)){
+                wmtomove.setBinTo(binto);
+            }
+            wmtomove.setTinFrom(t.getBinId());
+            wmtomove.setTinId(t.getBinId());
+            if(StringUtil.isNotEmpty(tinto)){
+                wmtomove.setTinId(tinto);
+            }
+            wmtomove.setCusCode(t.getCusCode());
+            wmtomove.setCusName(t.getZhongWenQch());
+            wmtomove.setToCusCode(t.getCusCode());
+            wmtomove.setToCusName(t.getZhongWenQch());
+
+            try {
+                MdCusEntity mdcus = systemService.findUniqueByProperty(MdCusEntity.class, "keHuBianMa", t.getCusCode());
+                wmtomove.setCusName(mdcus.getZhongWenQch());
+                wmtomove.setToCusName(mdcus.getZhongWenQch());
+
+            } catch (Exception e) {
+
+            }
+
+            wmtomove.setGoodsId(t.getGoodsId());
+            wmtomove.setGoodsName(t.getShpMingCheng());
+            wmtomove.setGoodsProData(t.getGoodsProData());
+            wmtomove.setGoodsQua(goodsqua);
+            wmtomove.setGoodsUnit(t.getGoodsUnit());
+            wmtomove.setBaseGoodscount(goodsqua);
+            wmtomove.setBaseUnit(t.getGoodsUnit());
+            wmtomove.setMoveSta("已完成");
+            wmtomove.setRunSta("计划中");
+
+            systemService.save(wmtomove);
+            systemService.addLog(message, Globals.Log_Type_UPDATE,
+                    Globals.Log_Leavel_INFO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            message = "生成转移单失败";
+            D0.setOK(false);
+            D0.setErrorMsg(message);
+            return new ResponseEntity(D0, HttpStatus.OK);
+        }
+        D0.setOK(true);
+        D0.setErrorMsg(message);
+
+        return new ResponseEntity(D0, HttpStatus.OK);
+    }
+
     @RequestMapping(params = "dostttpzy")
     @ResponseBody
     public AjaxJson doStttpzy(WvStockEntity wvStock, HttpServletRequest request) {
@@ -824,7 +899,8 @@ public class WvStockController extends BaseController {
     @ResponseBody
     public ResponseEntity<?> list(@RequestParam(value = "username", required = false) String username,
                                   @RequestParam(value = "searchstr", required = false) String searchstr,
-                                  @RequestParam(value = "searchstr2", required = false) String searchstr2) {
+                                  @RequestParam(value = "searchstr2", required = false) String searchstr2,
+                                  @RequestParam(value = "searchstr3", required = false) String searchstr3) {
 //		return listWvGis;
 
 
@@ -833,6 +909,9 @@ public class WvStockController extends BaseController {
         D0.setOK(true);
         if (!StringUtil.isEmpty(searchstr)) {
             hql = hql + "  and kuWeiBianMa like '%" + searchstr + "%'";
+        }
+        if (!StringUtil.isEmpty(searchstr3)) {
+            hql = hql + "  and binId like '%" + searchstr3 + "%'";
         }
         if (!StringUtil.isEmpty(searchstr2)) {
             try {

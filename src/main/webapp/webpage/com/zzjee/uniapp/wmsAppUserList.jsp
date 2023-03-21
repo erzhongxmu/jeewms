@@ -14,10 +14,10 @@
     <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="用户编号"  field="appuserCode"   query="true" queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="用户名称"  field="appuserName"   query="true" queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="角色id"  field="approleId"    queryMode="group" dictionary="pop_app_role,id,approle_code,approle_name,approle_id,approle_code,approle_name" popup="true" width="120"></t:dgCol>
+<%--    <t:dgCol title="用户名称"  field="appuserName"   query="true" queryMode="single"  width="120"></t:dgCol>--%>
+<%--    <t:dgCol title="角色id"  field="approleId"    queryMode="group" dictionary="pop_app_role,id,approle_code,approle_name,approle_id,approle_code,approle_name" popup="true" width="120"></t:dgCol>--%>
     <t:dgCol title="角色编号"  field="approleCode"   query="true" queryMode="single"  width="120"></t:dgCol>
-    <t:dgCol title="角色名称"  field="approleName"   query="true" queryMode="single"  width="120"></t:dgCol>
+<%--    <t:dgCol title="角色名称"  field="approleName"   query="true" queryMode="single"  width="120"></t:dgCol>--%>
     <t:dgCol title="备用1"  field="query1"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="备用2"  field="query2"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
     <t:dgCol title="备用3"  field="query3"  hidden="true"  queryMode="group"  width="120"></t:dgCol>

@@ -18,12 +18,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.SequenceGenerator;
 import org.jeecgframework.poi.excel.annotation.Excel;
 
-/**   
+/**
  * @Title: Entity
  * @Description: wv_gi
  * @author erzhongxmu
  * @date 2018-05-30 20:21:50
- * @version V1.0   
+ * @version V1.0
  *
  */
 @Entity
@@ -68,7 +68,9 @@ public class WvGiEntity implements java.io.Serializable {
 	/**状态*/
 	@Excel(name="状态")
 	private String downSta;
-	
+	/**客户订单号*/
+	@Excel(name="客户订单号")
+	private java.lang.String imCusCode;
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主键
@@ -279,5 +281,20 @@ public class WvGiEntity implements java.io.Serializable {
 	 */
 	public void setDownSta(String downSta){
 		this.downSta = downSta;
+	}
+
+
+
+	@Column(name ="IM_CUS_CODE",nullable=true,length=32)
+	public java.lang.String getImCusCode(){
+		return this.imCusCode;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  客户订单号
+	 */
+	public void setImCusCode(java.lang.String imCusCode){
+		this.imCusCode = imCusCode;
 	}
 }

@@ -99,7 +99,6 @@ public class WmToMoveGoodsController extends BaseController {
 	 * @param request
 	 * @param response
 	 * @param dataGrid
-	 * @param user
 	 */
 
 	@RequestMapping(params = "datagrid")
@@ -549,8 +548,23 @@ public class WmToMoveGoodsController extends BaseController {
 
 			}
 			t.setUpdateDate(now());
-			wmToMoveGoodsService.saveOrUpdate(t);
-			D0.setOK(true);
+//			if(!wmUtil.checkstcok( t.getBinFrom(),t.getTinFrom(),t.getGoodsId(),t.getGoodsProData(),t.getBaseGoodscount())) {
+//				D0.setOK(false);
+//				D0.setErrorMsg("库存不足");
+//			}else{
+
+				String movesta = "已完成";
+				try{
+					movesta = ResourceUtil.getConfigByName("wm.movesta");
+
+				}catch (Exception e){
+
+				}
+				t.setMoveSta(movesta);
+				wmToMoveGoodsService.saveOrUpdate(t);
+				D0.setOK(true);
+//			}
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
